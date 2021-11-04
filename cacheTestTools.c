@@ -81,3 +81,24 @@ int verify(array_t array) {
     }
     return 1;
 }
+
+
+int runSort(int argc, char *argv[], sort_algorithm_t the_sort) {
+
+    int x;
+    array_t array = initialize(argc, argv);
+
+    the_sort(array.array, array.array + array.size - 1);
+
+    /* Only print a few at the beginning and end so that printf doesn't
+     * dominate the cache behavior */
+    for (x = 0; x < 5; x++) {
+        printf("%d\n", array.array[x]);
+    }
+
+    for (x = array.size - 5; x < array.size; x++) {
+        printf("%d\n", array.array[x]);
+    }
+
+    return 0;
+}

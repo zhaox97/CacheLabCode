@@ -17,7 +17,7 @@ void vecswap(int *a, int *b, int size) {
     }
 }
 
-void myQsort(int *array, int *begin, int *end) {
+void myQsort(int *begin, int *end) {
 
    /* This is just helpful for debugging in CLion */
    // int (*dArray)[12] = array;
@@ -101,8 +101,8 @@ void myQsort(int *array, int *begin, int *end) {
       int* end1 = begin + (int)(left-mid_left)-1;
       int* begin2 = right + 1 + (int)(end - mid_right);
     */
-    myQsort(array, begin, begin + (int)(left-mid_left)-1);
-    myQsort(array, right + 1 + (int)(end - mid_right), end);
+    myQsort(begin, begin + (int)(left-mid_left)-1);
+    myQsort(right + 1 + (int)(end - mid_right), end);
 
 } /* end myQsort */
 

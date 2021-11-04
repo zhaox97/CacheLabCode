@@ -7,6 +7,9 @@ typedef struct {
   int size;
 } array_t;
 
+typedef void (*sort_algorithm_t)(int *, int *);
+int runSort(int argc, char *argv[], sort_algorithm_t the_sort);
+
 
 int makeAndLoadArray(FILE* input, array_t* array);
 void makeAndLoadRandom(int size, int max, array_t* array);

@@ -1,9 +1,9 @@
 void insertionSort(int *begin, int *end) {
 
-    int* c = begin + 1;
+    register int* c = begin + 1;
     while (c <= end) {
-        int key = *c;
-        int *ptr = c -1;
+        register int key = *c;
+        register int *ptr = c -1;
         while (ptr >= begin && key < *ptr) {
             *(ptr+1) = *ptr;
             --ptr;
