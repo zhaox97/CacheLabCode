@@ -1,5 +1,5 @@
 #define ARRAY_SIZE 16*1024 /* i.e., 8KB */
-#define NUM_LOOPS 100
+#define NUM_LOOPS 100000
 
 
 /****************************************************************************
@@ -17,11 +17,11 @@
 
 int main()
 {
+  _Alignas(64)  /* make sure that the array aligns with the cache. */
   char array[ARRAY_SIZE];
   register int outer_loop;
   register int inner_loop;
   register int solution = 0;
-  /*  char* array = array_d + 8; */
 
   for (outer_loop = 0; outer_loop < NUM_LOOPS; outer_loop++)
     {
