@@ -1,7 +1,5 @@
-#define ARRAY_SIZE 16*1024 /* i.e., 8KB */
-#define NUM_LOOPS 100000
-
-
+#define ARRAY_SIZE 16*1024 /* i.e., 16KB */
+#define NUM_LOOPS 10000000
 /****************************************************************************
  *
  *  Notice that the array is an array of characters.  This means that
@@ -20,15 +18,10 @@ int main()
   _Alignas(64)  /* make sure that the array aligns with the cache. */
   char array[ARRAY_SIZE];
   register int outer_loop;
-  register int inner_loop;
   register int solution = 0;
-
   for (outer_loop = 0; outer_loop < NUM_LOOPS; outer_loop++)
     {
-      for (inner_loop = 0; inner_loop < ARRAY_SIZE; inner_loop++)
-	{
-	  solution *= array[inner_loop];
-	}
+	    solution *= array[0] + array[8192];
     }
   return solution;
 }
